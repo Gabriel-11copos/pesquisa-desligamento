@@ -202,11 +202,11 @@
     </div>
 
     <div class="card conditional" id="cardMotivoDemissao">
-      <h2>1. Motivo da saída</h2>
+      <h2>Motivo da saída</h2>
       <p class="card-sub">Perguntas exibidas porque você indicou pedido de demissão.</p>
       <hr class="divider">
 
-      <label>Qual motivo fez você pedir demissão? <span class="required">*</span></label>
+      <label>1. Qual motivo fez você pedir demissão? <span class="required">*</span></label>
       <select id="motivoPrincipal">
         <option value="">Selecione</option>
         <option>Remuneração e benefícios</option>
@@ -227,7 +227,7 @@
       </div>
 
       <div class="conditional" id="cardNovaOportunidade">
-        <label>19. Por que você escolheu esta nova oportunidade?</label>
+        <label>3. Por que você escolheu esta nova oportunidade?</label>
         <div class="checkbox-grid" id="novaOportunidadeGrid"></div>
         <input type="text" id="novoEmpregador" placeholder="Para qual empresa você vai? (opcional)" style="margin-top:8px">
       </div>
@@ -237,20 +237,20 @@
       <h2>Pontos fortes e o que pode melhorar</h2>
       <hr class="divider">
 
-      <label>1. O que a empresa está fazendo certo? (pode marcar mais de um)</label>
+      <label>4. O que a empresa está fazendo certo? (pode marcar mais de um)</label>
       <div class="checkbox-grid" id="pontosFortesGrid"></div>
 
-      <label>3. O que você acha que a empresa poderia ter feito para evitar a situação?</label>
+      <label>5. O que você acha que a empresa poderia ter feito para evitar a situação?</label>
       <textarea id="sugestaoEvitarSaida" placeholder="Opcional"></textarea>
 
-      <label>4. Como você acredita que a empresa precisa melhorar? (pode marcar mais de um)</label>
+      <label>6. Como você acredita que a empresa precisa melhorar? (pode marcar mais de um)</label>
       <div class="checkbox-grid" id="areasMelhoriaGrid"></div>
       <textarea id="areasMelhoriaComentario" placeholder="Comentário adicional (opcional)" style="margin-top:8px"></textarea>
 
-      <label>5. O que você gostaria de saber no início da sua jornada na empresa?</label>
+      <label>7. O que você gostaria de saber no início da sua jornada na empresa?</label>
       <textarea id="onboardingSugestao" placeholder="Opcional"></textarea>
 
-      <label>27. Como você avalia o processo de integração (onboarding) que você teve? <span class="required">*</span></label>
+      <label>8. Como você avalia o processo de integração (onboarding) que você teve? <span class="required">*</span></label>
       <div class="scale" data-field="notaOnboarding">
         <div class="scale-btn" data-value="1">1</div><div class="scale-btn" data-value="2">2</div><div class="scale-btn" data-value="3">3</div><div class="scale-btn" data-value="4">4</div><div class="scale-btn" data-value="5">5</div>
       </div>
@@ -260,10 +260,10 @@
       <h2>Retenção e engajamento</h2>
       <hr class="divider">
 
-      <label>23. O que podemos fazer para reter profissionais? (pode marcar mais de um)</label>
+      <label>9. O que podemos fazer para reter profissionais? (pode marcar mais de um)</label>
       <div class="checkbox-grid" id="acoesRetencaoGrid"></div>
 
-      <label>37. O que poderíamos fazer para melhorar o engajamento dos colaboradores? (pode marcar mais de um)</label>
+      <label>10. O que poderíamos fazer para melhorar o engajamento dos colaboradores? (pode marcar mais de um)</label>
       <div class="checkbox-grid" id="acoesEngajamentoGrid"></div>
     </div>
 
@@ -271,48 +271,48 @@
       <h2>Suporte no dia a dia</h2>
       <hr class="divider">
 
-      <label>16. Você diria que recebeu treinamento suficiente para desempenhar bem sua função? <span class="required">*</span></label>
+      <label>11. Você diria que recebeu treinamento suficiente para desempenhar bem sua função? <span class="required">*</span></label>
       <div class="radio-row" data-group="recebeuTreinamentoSuficiente">
         <label class="radio-option"><input type="radio" name="recebeuTreinamentoSuficiente" value="Sim"> Sim</label>
         <label class="radio-option"><input type="radio" name="recebeuTreinamentoSuficiente" value="Parcialmente"> Parcialmente</label>
         <label class="radio-option"><input type="radio" name="recebeuTreinamentoSuficiente" value="Não"> Não</label>
       </div>
 
-      <label>17. Você teve suporte para tirar suas dúvidas enquanto trabalhava aqui? <span class="required">*</span></label>
+      <label>12. Você teve suporte para tirar suas dúvidas enquanto trabalhava aqui? <span class="required">*</span></label>
       <div class="radio-row" data-group="teveSuporteDuvidas">
         <label class="radio-option"><input type="radio" name="teveSuporteDuvidas" value="Sim"> Sim</label>
         <label class="radio-option"><input type="radio" name="teveSuporteDuvidas" value="Não"> Não</label>
       </div>
       <input type="text" id="teveSuporteDuvidasComo" placeholder="Como? (opcional)" style="margin-top:8px">
 
-      <label>36. Você recebeu todos os materiais que precisava para exercer suas funções? <span class="required">*</span></label>
+      <label>13. Você recebeu todos os materiais que precisava para exercer suas funções? <span class="required">*</span></label>
       <div class="radio-row" data-group="recebeuMateriaisNecessarios">
         <label class="radio-option"><input type="radio" name="recebeuMateriaisNecessarios" value="Sim"> Sim</label>
         <label class="radio-option"><input type="radio" name="recebeuMateriaisNecessarios" value="Não"> Não</label>
       </div>
 
-      <label>49. As tarefas que você desempenhou estavam alinhadas à sua função? <span class="required">*</span></label>
+      <label>14. As tarefas que você desempenhou estavam alinhadas à sua função? <span class="required">*</span></label>
       <div class="radio-row" data-group="tarefasAlinhadas">
         <label class="radio-option"><input type="radio" name="tarefasAlinhadas" value="Sim"> Sim</label>
         <label class="radio-option"><input type="radio" name="tarefasAlinhadas" value="Parcialmente"> Parcialmente</label>
         <label class="radio-option"><input type="radio" name="tarefasAlinhadas" value="Não"> Não</label>
       </div>
 
-      <label>50. Você tinha uma compreensão clara do que se esperava de você na sua função? <span class="required">*</span></label>
+      <label>15. Você tinha uma compreensão clara do que se esperava de você na sua função? <span class="required">*</span></label>
       <div class="radio-row" data-group="compreensaoExpectativas">
         <label class="radio-option"><input type="radio" name="compreensaoExpectativas" value="Sim"> Sim</label>
         <label class="radio-option"><input type="radio" name="compreensaoExpectativas" value="Parcialmente"> Parcialmente</label>
         <label class="radio-option"><input type="radio" name="compreensaoExpectativas" value="Não"> Não</label>
       </div>
 
-      <label>31. As políticas da empresa foram adequadas? <span class="required">*</span></label>
+      <label>16. As políticas da empresa foram adequadas? <span class="required">*</span></label>
       <div class="radio-row" data-group="politicasAdequadas">
         <label class="radio-option"><input type="radio" name="politicasAdequadas" value="Sim"> Sim</label>
         <label class="radio-option"><input type="radio" name="politicasAdequadas" value="Parcialmente"> Parcialmente</label>
         <label class="radio-option"><input type="radio" name="politicasAdequadas" value="Não"> Não</label>
       </div>
 
-      <label>22. O sistema de avaliação de desempenho funcionou para você? <span class="required">*</span></label>
+      <label>17. O sistema de avaliação de desempenho funcionou para você? <span class="required">*</span></label>
       <div class="radio-row" data-group="sistemaAvaliacaoFuncionou">
         <label class="radio-option"><input type="radio" name="sistemaAvaliacaoFuncionou" value="Sim"> Sim</label>
         <label class="radio-option"><input type="radio" name="sistemaAvaliacaoFuncionou" value="Parcialmente"> Parcialmente</label>
@@ -324,32 +324,32 @@
       <h2>Perguntas mais pessoais</h2>
       <hr class="divider">
 
-      <label>28. Você se sentiu uma parte valiosa da empresa? <span class="required">*</span></label>
+      <label>18. Você se sentiu uma parte valiosa da empresa? <span class="required">*</span></label>
       <div class="radio-row" data-group="sentiuPertencimento">
         <label class="radio-option"><input type="radio" name="sentiuPertencimento" value="Sim"> Sim</label>
         <label class="radio-option"><input type="radio" name="sentiuPertencimento" value="Parcialmente"> Parcialmente</label>
         <label class="radio-option"><input type="radio" name="sentiuPertencimento" value="Não"> Não</label>
       </div>
 
-      <label>38. Você se sentiu motivado(a)/inspirado(a) no dia a dia de trabalho? <span class="required">*</span></label>
+      <label>19. Você se sentiu motivado(a)/inspirado(a) no dia a dia de trabalho? <span class="required">*</span></label>
       <div class="radio-row" data-group="sentiuMotivado">
         <label class="radio-option"><input type="radio" name="sentiuMotivado" value="Sim"> Sim</label>
         <label class="radio-option"><input type="radio" name="sentiuMotivado" value="Parcialmente"> Parcialmente</label>
         <label class="radio-option"><input type="radio" name="sentiuMotivado" value="Não"> Não</label>
       </div>
 
-      <label>45. Você se sentiu à vontade para expressar suas opiniões e ser você mesmo(a)? <span class="required">*</span></label>
+      <label>20. Você se sentiu à vontade para expressar suas opiniões e ser você mesmo(a)? <span class="required">*</span></label>
       <div class="radio-row" data-group="sentiuLiberdadeExpressao">
         <label class="radio-option"><input type="radio" name="sentiuLiberdadeExpressao" value="Sim"> Sim</label>
         <label class="radio-option"><input type="radio" name="sentiuLiberdadeExpressao" value="Parcialmente"> Parcialmente</label>
         <label class="radio-option"><input type="radio" name="sentiuLiberdadeExpressao" value="Não"> Não</label>
       </div>
 
-      <label>42. De 0 a 10, qual seu nível de felicidade com o ambiente de trabalho que oferecemos? <span class="required">*</span></label>
+      <label>21. De 0 a 10, qual seu nível de felicidade com o ambiente de trabalho que oferecemos? <span class="required">*</span></label>
       <div class="nps-scale" id="felicidadeScale"></div>
       <div class="scale-labels"><span>Nada feliz</span><span>Extremamente feliz</span></div>
 
-      <label style="margin-top:22px">Durante sua passagem por aqui, você viveu alguma situação que te deixou desconfortável, injustiçado(a) ou mal tratado(a) e gostaria de relatar? <span class="required">*</span></label>
+      <label style="margin-top:22px">22. Durante sua passagem por aqui, você viveu alguma situação que te deixou desconfortável, injustiçado(a) ou mal tratado(a) e gostaria de relatar? <span class="required">*</span></label>
       <div class="confidential-note">Sua resposta é tratada com confidencialidade pelo RH.</div>
       <div class="radio-row" data-group="sofreuDiscriminacaoAssedio">
         <label class="radio-option"><input type="radio" name="sofreuDiscriminacaoAssedio" value="Sim"> Sim</label>
@@ -366,35 +366,35 @@
       <p class="card-sub">1 = muito insatisfeito, 5 = muito satisfeito</p>
       <hr class="divider">
 
-      <label>6. Você recomendaria nossa organização para outras pessoas? <span class="required">*</span></label>
+      <label>23. Você recomendaria nossa organização para outras pessoas? <span class="required">*</span></label>
       <div class="nps-scale" id="npsScale"></div>
       <div class="scale-labels"><span>Não recomendaria</span><span>Recomendaria totalmente</span></div>
 
-      <label style="margin-top:22px">7. Ambiente de trabalho e infraestrutura <span class="required">*</span></label>
+      <label style="margin-top:22px">24. Ambiente de trabalho e infraestrutura <span class="required">*</span></label>
       <div class="scale" data-field="notaAmbienteInfraestrutura">
         <div class="scale-btn" data-value="1">1</div><div class="scale-btn" data-value="2">2</div><div class="scale-btn" data-value="3">3</div><div class="scale-btn" data-value="4">4</div><div class="scale-btn" data-value="5">5</div>
       </div>
 
-      <label>8. A empresa ofereceu oportunidades de desenvolvimento profissional? <span class="required">*</span></label>
+      <label>25. A empresa ofereceu oportunidades de desenvolvimento profissional? <span class="required">*</span></label>
       <div class="radio-row" data-group="desenvolvimentoProfissional">
         <label class="radio-option"><input type="radio" name="desenvolvimentoProfissional" value="Sim"> Sim</label>
         <label class="radio-option"><input type="radio" name="desenvolvimentoProfissional" value="Parcialmente"> Parcialmente</label>
         <label class="radio-option"><input type="radio" name="desenvolvimentoProfissional" value="Não"> Não</label>
       </div>
 
-      <label>10. Você se sentia reconhecido profissionalmente? <span class="required">*</span></label>
+      <label>26. Você se sentia reconhecido profissionalmente? <span class="required">*</span></label>
       <div class="radio-row" data-group="sentiaReconhecido">
         <label class="radio-option"><input type="radio" name="sentiaReconhecido" value="Sim"> Sim</label>
         <label class="radio-option"><input type="radio" name="sentiaReconhecido" value="Parcialmente"> Parcialmente</label>
         <label class="radio-option"><input type="radio" name="sentiaReconhecido" value="Não"> Não</label>
       </div>
 
-      <label>11. Política salarial e de benefícios <span class="required">*</span></label>
+      <label>27. Política salarial e de benefícios <span class="required">*</span></label>
       <div class="scale" data-field="notaSalarioBeneficios">
         <div class="scale-btn" data-value="1">1</div><div class="scale-btn" data-value="2">2</div><div class="scale-btn" data-value="3">3</div><div class="scale-btn" data-value="4">4</div><div class="scale-btn" data-value="5">5</div>
       </div>
 
-      <label>12. Relacionamento com a liderança <span class="required">*</span></label>
+      <label>28. Relacionamento com a liderança <span class="required">*</span></label>
       <div class="scale" data-field="notaRelacionamentoLideranca">
         <div class="scale-btn" data-value="1">1</div><div class="scale-btn" data-value="2">2</div><div class="scale-btn" data-value="3">3</div><div class="scale-btn" data-value="4">4</div><div class="scale-btn" data-value="5">5</div>
       </div>
@@ -404,19 +404,19 @@
         <div class="scale-btn" data-value="1">1</div><div class="scale-btn" data-value="2">2</div><div class="scale-btn" data-value="3">3</div><div class="scale-btn" data-value="4">4</div><div class="scale-btn" data-value="5">5</div>
       </div>
 
-      <label>13. Canais de comunicação interna <span class="required">*</span></label>
+      <label>29. Canais de comunicação interna <span class="required">*</span></label>
       <div class="scale" data-field="notaComunicacaoInterna">
         <div class="scale-btn" data-value="1">1</div><div class="scale-btn" data-value="2">2</div><div class="scale-btn" data-value="3">3</div><div class="scale-btn" data-value="4">4</div><div class="scale-btn" data-value="5">5</div>
       </div>
 
-      <label>15. Você recebeu metas claras e atingíveis? <span class="required">*</span></label>
+      <label>30. Você recebeu metas claras e atingíveis? <span class="required">*</span></label>
       <div class="radio-row" data-group="metasClaras">
         <label class="radio-option"><input type="radio" name="metasClaras" value="Sim"> Sim</label>
         <label class="radio-option"><input type="radio" name="metasClaras" value="Parcialmente"> Parcialmente</label>
         <label class="radio-option"><input type="radio" name="metasClaras" value="Não"> Não</label>
       </div>
 
-      <label>16. Você recebeu feedbacks no período em que esteve na empresa? <span class="required">*</span></label>
+      <label>31. Você recebeu feedbacks no período em que esteve na empresa? <span class="required">*</span></label>
       <div class="radio-row" data-group="recebeuFeedback">
         <label class="radio-option"><input type="radio" name="recebeuFeedback" value="Sim"> Sim</label>
         <label class="radio-option"><input type="radio" name="recebeuFeedback" value="Às vezes"> Às vezes</label>
@@ -425,7 +425,7 @@
     </div>
 
     <div class="card">
-      <h2>14. Cultura da empresa</h2>
+      <h2>32. Cultura da empresa</h2>
       <p class="card-sub">Como você descreveria a cultura da empresa? Marque quantas fizerem sentido.</p>
       <hr class="divider">
       <div class="checkbox-grid" id="culturaGrid"></div>
@@ -435,13 +435,13 @@
       <h2>Encerramento</h2>
       <hr class="divider">
 
-      <label>9. Pontos positivos da sua trajetória na empresa</label>
+      <label>33. Pontos positivos da sua trajetória na empresa</label>
       <textarea id="pontosPositivos" placeholder="Opcional"></textarea>
 
       <label>Pontos negativos da sua trajetória na empresa</label>
       <textarea id="pontosNegativos" placeholder="Opcional"></textarea>
 
-      <label>18. Se tivesse a oportunidade, você voltaria a trabalhar na organização? <span class="required">*</span></label>
+      <label>34. Se tivesse a oportunidade, você voltaria a trabalhar na organização? <span class="required">*</span></label>
       <div class="radio-row" data-group="voltariaTrabalhar">
         <label class="radio-option"><input type="radio" name="voltariaTrabalhar" value="Sim"> Sim</label>
         <label class="radio-option"><input type="radio" name="voltariaTrabalhar" value="Talvez"> Talvez</label>
@@ -449,25 +449,25 @@
       </div>
       <textarea id="voltariaTrabalharPorque" placeholder="Por quê? (opcional)" style="margin-top:8px"></textarea>
 
-      <label>39. Qual foi o seu maior aprendizado neste período na empresa?</label>
+      <label>35. Qual foi o seu maior aprendizado neste período na empresa?</label>
       <textarea id="maiorAprendizado" placeholder="Opcional"></textarea>
 
-      <label>32. Tem alguma preocupação sobre a empresa que gostaria de compartilhar?</label>
+      <label>36. Tem alguma preocupação sobre a empresa que gostaria de compartilhar?</label>
       <textarea id="preocupacaoEmpresa" placeholder="Opcional"></textarea>
 
-      <label>53. Podemos ajudar você a facilitar essa transição? <span class="required">*</span></label>
+      <label>37. Podemos ajudar você a facilitar essa transição? <span class="required">*</span></label>
       <div class="radio-row" data-group="desejaAjudaTransicao">
         <label class="radio-option"><input type="radio" name="desejaAjudaTransicao" value="Sim"> Sim</label>
         <label class="radio-option"><input type="radio" name="desejaAjudaTransicao" value="Não"> Não</label>
       </div>
 
-      <label>20. Se você pudesse dar uma dica para a empresa, qual seria?</label>
+      <label>38. Se você pudesse dar uma dica para a empresa, qual seria?</label>
       <textarea id="dicaEmpresa" placeholder="Opcional"></textarea>
 
-      <label>21. Qual conselho você daria para a pessoa que vai ocupar sua posição no futuro?</label>
+      <label>39. Qual conselho você daria para a pessoa que vai ocupar sua posição no futuro?</label>
       <textarea id="conselhoSucessor" placeholder="Opcional"></textarea>
 
-      <label>54. Mais algum comentário que não abordamos?</label>
+      <label>40. Mais algum comentário que não abordamos?</label>
       <textarea id="comentarioFinal" placeholder="Opcional"></textarea>
     </div>
 
