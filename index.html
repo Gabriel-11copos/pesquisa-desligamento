@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pesquisa de Desligamento</title>
+<style>
+  :root {
+    --navy: #1E3356;
+    --navy-light: #3B6EA5;
+    --bg: #F5F7FA;
+    --card: #FFFFFF;
+    --border: #DCE3EC;
+    --text: #22314F;
+    --text-muted: #6B7A90;
+    --accent: #C98A4B;
+    --success: #3C8C6E;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    padding: 32px 16px 80px;
+  }
+  .wrap { max-width: 640px; margin: 0 auto; }
+  .header {
+    background: var(--navy);
+    color: #fff;
+    border-radius: 12px;
+    padding: 28px 28px 24px;
+    margin-bottom: 20px;
+  }
+  .header h1 { margin: 0 0 6px; font-size: 22px; font-weight: 600; }
+  .header p { margin: 0; color: #C7D4E8; font-size: 14px; line-height: 1.5; }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 16px;
+  }
+  .card h2 {
+    font-size: 15px;
+    color: var(--navy);
+    margin: 0 0 16px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+  }
+  label {
+    display: block;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--text);
+    margin: 16px 0 6px;
+  }
+  label:first-of-type { margin-top: 0; }
+  input[type=text], input[type=date], select, textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: inherit;
+    color: var(--text);
+    background: #fff;
+  }
+  input:focus, select:focus, textarea:focus {
+    outline: 2px solid var(--navy-light);
+    outline-offset: 1px;
+  }
+  textarea { resize: vertical; min-height: 80px; }
+  .radio-row, .type-row {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .radio-row label, .type-row label {
+    margin: 0;
+    font-weight: 400;
+  }
+  .type-option {
+    flex: 1;
+    min-width: 200px;
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    transition: border-color .15s, background .15s;
+  }
+  .type-option input { margin: 0; }
+  .type-option.selected {
+    border-color: var(--navy-light);
+    background: #EEF3FA;
+  }
+  .scale {
+    display: flex;
+    justify-content: space-between;
+    gap: 6px;
+    margin-top: 6px;
+  }
+  .scale-btn {
+    flex: 1;
+    text-align: center;
+    padding: 10px 0;
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    color: var(--text-muted);
+    background: #fff;
+    transition: all .15s;
+  }
+  .scale-btn.selected {
+    border-color: var(--navy);
+    background: var(--navy);
+    color: #fff;
+  }
+  .scale-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-top: 4px;
+  }
+  .nps-scale { display: grid; grid-template-columns: repeat(11, 1fr); gap: 4px; margin-top: 6px; }
+  .nps-scale .scale-btn { padding: 8px 0; font-size: 12px; }
+  .submit-btn {
+    width: 100%;
+    background: var(--navy);
+    color: #fff;
+    border: none;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 8px;
+  }
+  .submit-btn:hover { background: var(--navy-light); }
+  .submit-btn:disabled { opacity: .6; cursor: default; }
+  .required { color: var(--accent); }
+  .success-screen {
+    text-align: center;
+    padding: 60px 24px;
+  }
+  .success-screen .icon {
+    width: 56px; height: 56px; border-radius: 50%;
+    background: var(--success); color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 28px; margin: 0 auto 20px;
+  }
+  .success-screen h2 { color: var(--navy); margin-bottom: 8px; }
+  .success-screen p { color: var(--text-muted); font-size: 14px; }
+  .error-msg { color: #B3452B; font-size: 13px; margin-top: 10px; display: none; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="header">
+    <h1>Pesquisa de Desligamento</h1>
+    <p>Sua opinião ajuda a melhorar o ambiente e a gestão de pessoas do grupo. As respostas são usadas apenas para fins internos de RH.</p>
+  </div>
+
+  <form id="surveyForm">
+    <div class="card">
+      <h2>Dados do desligamento</h2>
+
+      <label>Nome completo <span class="required">*</span></label>
+      <input type="text" id="nome" required>
+
+      <label>CPF <span class="required">*</span></label>
+      <input type="text" id="cpf" placeholder="000.000.000-00" required>
+
+      <label>Loja / Unidade <span class="required">*</span></label>
+      <select id="loja" required>
+        <option value="">Selecione</option>
+        <option>Gávea</option>
+        <option>Tijuca</option>
+        <option>Laranjeiras</option>
+        <option>Botafogo</option>
+        <option>Leblon</option>
+        <option>Lapa</option>
+        <option>Morro da Urca</option>
+        <option>Barra da Tijuca</option>
+        <option>Outra</option>
+      </select>
+
+      <label>Cargo <span class="required">*</span></label>
+      <input type="text" id="cargo" required>
+
+      <label>Tipo de desligamento <span class="required">*</span></label>
+      <div class="type-row" id="tipoRow">
+        <label class="type-option" data-value="Pedido de Demissão">
+          <input type="radio" name="tipo" value="Pedido de Demissão" required> Pedido de Demissão
+        </label>
+        <label class="type-option" data-value="Término de Experiência">
+          <input type="radio" name="tipo" value="Término de Experiência"> Término de Contrato de Experiência
+        </label>
+      </div>
+
+      <label>Data do desligamento <span class="required">*</span></label>
+      <input type="date" id="dataDesligamento" required>
+    </div>
+
+    <div class="card">
+      <h2>Motivo principal</h2>
+      <select id="motivoPrincipal" required>
+        <option value="">Selecione o principal motivo</option>
+        <option>Remuneração e benefícios</option>
+        <option>Falta de oportunidade de crescimento</option>
+        <option>Relacionamento com a liderança</option>
+        <option>Carga horária / escala</option>
+        <option>Ambiente de trabalho</option>
+        <option>Proposta em outra empresa</option>
+        <option>Mudança de área ou carreira</option>
+        <option>Motivos pessoais</option>
+        <option>Outro</option>
+      </select>
+    </div>
+
+    <div class="card">
+      <h2>Avaliação (1 = muito insatisfeito, 5 = muito satisfeito)</h2>
+      <div id="scalesContainer"></div>
+    </div>
+
+    <div class="card">
+      <h2>Recomendação</h2>
+      <label>De 0 a 10, o quanto você recomendaria a empresa como lugar para trabalhar?</label>
+      <div class="nps-scale" id="npsScale"></div>
+      <div class="scale-labels"><span>Não recomendaria</span><span>Recomendaria totalmente</span></div>
+    </div>
+
+    <div class="card">
+      <h2>Comentários</h2>
+      <label>Há algo mais que gostaria de compartilhar? (opcional)</label>
+      <textarea id="comentarios" placeholder="Fique à vontade para detalhar sua experiência..."></textarea>
+    </div>
+
+    <button type="submit" class="submit-btn" id="submitBtn">Enviar respostas</button>
+    <div class="error-msg" id="errorMsg">Não foi possível enviar. Verifique sua conexão e tente novamente.</div>
+  </form>
+
+  <div class="success-screen card" id="successScreen" style="display:none;">
+    <div class="icon">✓</div>
+    <h2>Respostas enviadas</h2>
+    <p>Obrigado pelo seu tempo. Desejamos sucesso nos próximos passos.</p>
+  </div>
+
+</div>
+
+<script>
+  // Substitua pela URL de implantação do seu Apps Script (doPost)
+  const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbw9oGWd9O-LGCCWMlUxez4H1kTw-ycJxrDBAuQzcOMBb_R7iNwhkPu8YQX3tSAbHzSA/exec";
+
+  const FACTORS = [
+    { id: "notaLideranca", label: "Liderança direta" },
+    { id: "notaRemuneracao", label: "Remuneração e benefícios" },
+    { id: "notaAmbiente", label: "Ambiente de trabalho" },
+    { id: "notaCrescimento", label: "Oportunidades de crescimento" },
+    { id: "notaEscala", label: "Carga horária e escala" },
+    { id: "notaEquipe", label: "Relacionamento com a equipe" }
+  ];
+
+  const scalesContainer = document.getElementById("scalesContainer");
+  const values = {};
+
+  FACTORS.forEach(f => {
+    const block = document.createElement("div");
+    block.style.marginBottom = "18px";
+    block.innerHTML = `
+      <label style="margin-top:0">${f.label} <span class="required">*</span></label>
+      <div class="scale" data-field="${f.id}">
+        ${[1,2,3,4,5].map(n => `<div class="scale-btn" data-value="${n}">${n}</div>`).join("")}
+      </div>
+    `;
+    scalesContainer.appendChild(block);
+  });
+
+  document.querySelectorAll(".scale").forEach(scale => {
+    scale.addEventListener("click", e => {
+      const btn = e.target.closest(".scale-btn");
+      if (!btn) return;
+      scale.querySelectorAll(".scale-btn").forEach(b => b.classList.remove("selected"));
+      btn.classList.add("selected");
+      values[scale.dataset.field] = btn.dataset.value;
+    });
+  });
+
+  const npsScale = document.getElementById("npsScale");
+  for (let n = 0; n <= 10; n++) {
+    const btn = document.createElement("div");
+    btn.className = "scale-btn";
+    btn.dataset.value = n;
+    btn.textContent = n;
+    npsScale.appendChild(btn);
+  }
+  npsScale.addEventListener("click", e => {
+    const btn = e.target.closest(".scale-btn");
+    if (!btn) return;
+    npsScale.querySelectorAll(".scale-btn").forEach(b => b.classList.remove("selected"));
+    btn.classList.add("selected");
+    values.nps = btn.dataset.value;
+  });
+
+  document.querySelectorAll(".type-option").forEach(opt => {
+    opt.addEventListener("click", () => {
+      document.querySelectorAll(".type-option").forEach(o => o.classList.remove("selected"));
+      opt.classList.add("selected");
+    });
+  });
+
+  const form = document.getElementById("surveyForm");
+  const submitBtn = document.getElementById("submitBtn");
+  const errorMsg = document.getElementById("errorMsg");
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    if (FACTORS.some(f => !values[f.id]) || !values.nps) {
+      errorMsg.textContent = "Preencha todas as avaliações antes de enviar.";
+      errorMsg.style.display = "block";
+      return;
+    }
+
+    const tipo = form.querySelector('input[name="tipo"]:checked');
+    const payload = {
+      nome: document.getElementById("nome").value,
+      cpf: document.getElementById("cpf").value,
+      loja: document.getElementById("loja").value,
+      cargo: document.getElementById("cargo").value,
+      tipo: tipo ? tipo.value : "",
+      dataDesligamento: document.getElementById("dataDesligamento").value,
+      motivoPrincipal: document.getElementById("motivoPrincipal").value,
+      comentarios: document.getElementById("comentarios").value,
+      ...values
+    };
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Enviando...";
+    errorMsg.style.display = "none";
+
+    try {
+      const body = new URLSearchParams(payload);
+      await fetch(APPS_SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors",
+        body
+      });
+      form.style.display = "none";
+      document.getElementById("successScreen").style.display = "block";
+    } catch (err) {
+      errorMsg.textContent = "Não foi possível enviar. Verifique sua conexão e tente novamente.";
+      errorMsg.style.display = "block";
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Enviar respostas";
+    }
+  });
+</script>
+</body>
+</html>
